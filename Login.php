@@ -12,7 +12,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 	session_start();
 	// username and password sent from form       
 	$myusername = $_POST['uname'];
-	$mypassword = password_hash($_POST['psw'], PASSWORD_BCRYPT);
+	$mypassword = $_POST['psw'];
 
 	include "$_SERVER[DOCUMENT_ROOT]/pinyator/Connexio.php";	  
 
@@ -23,36 +23,36 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 
 	// If result matched $myusername and $mypassword, table row must be 1 row
 
-	if(mysqli_num_rows($result) == 1) {
-		while($row = mysqli_fetch_assoc($result)) {
-     if(password_verify($mypassword, $row['PASSWORD'])) {
-      $_SESSION["usuari"] = $row["NOM"];
-			$_SESSION["carrec"] = $row["CARREC"];
-			
-			$_SESSION["casteller"] = $row["SEGCASTELLER"] ;
-			$_SESSION["event"] = $row["SEGEVENT"];
-			$_SESSION["castell"] = $row["SEGCASTELL"];
-			$_SESSION["boss"] =$row["SEGBOSS"];
-			
-			if ($row["SEGADMIN"] == "1") {
-				$_SESSION["admin"] = 2;
-				$_SESSION["casteller"] = 2;
-				$_SESSION["event"] = 2;
-				$_SESSION["castell"] = 2;
-				$_SESSION["boss"] = 2;
-			}
+  if(mysqli_num_rows($result) == 1) {
+    while($row = mysqli_fetch_assoc($result)) {
+      if(password_verify($mypassword, $row['PASSWORD'])) {
+        $_SESSION["usuari"] = $row["NOM"];
+        $_SESSION["carrec"] = $row["CARREC"];
 
-   		$loged = true;
-     }
-		}
-		//header("location: Pinyator.php");
-	}
-	else 
-	{
-		$_SESSION["usuari"] = "";
-		$_SESSION["admin"] = "";
-		$error = "Your Login Name or Password is invalid";
-	}
+        $_SESSION["casteller"] = $row["SEGCASTELLER"] ;
+        $_SESSION["event"] = $row["SEGEVENT"];
+        $_SESSION["castell"] = $row["SEGCASTELL"];
+        $_SESSION["boss"] =$row["SEGBOSS"];
+
+        if ($row["SEGADMIN"] == "1") {
+          $_SESSION["admin"] = 2;
+          $_SESSION["casteller"] = 2;
+          $_SESSION["event"] = 2;
+          $_SESSION["castell"] = 2;
+          $_SESSION["boss"] = 2;
+        }
+
+        $loged = true;
+      }
+    }
+    //header("location: Pinyator.php");
+  }
+  else 
+  {
+    $_SESSION["usuari"] = "";
+    $_SESSION["admin"] = "";
+    $error = "Your Login Name or Password is invalid";
+  }
 }
 ?>
 
