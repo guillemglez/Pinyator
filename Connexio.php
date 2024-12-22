@@ -1,5 +1,9 @@
 <?php
-	$conn = mysqli_connect('localhost','user','password','pinyator');
+  $dbUser = getenv('DATABASE_USER');
+  $dbPassword = getenv('DATABASE_PASSWORD');
+  $dbName = getenv('DATABASE_NAME');
+
+	$conn = mysqli_connect('localhost',$dbUser,$dbPassword,$dbName);
 	if (!$conn) 
 	{
 		die('Could not connect: ' . mysqli_error($conn));
