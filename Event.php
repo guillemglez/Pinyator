@@ -1,3 +1,5 @@
+<?php session_start(); ?>
+
 <html lang="es-ES">
 <head>
   <title>Pinyator - Esdeveniment</title>
