@@ -1,9 +1,9 @@
 <?php
-  $dbUser = getenv('DATABASE_USER');
-  $dbPassword = getenv('DATABASE_PASSWORD');
-  $dbName = getenv('DATABASE_NAME');
+  $dbUser = getenv('MYSQL_USER');
+  $dbPassword = getenv('MYSQL_PASSWORD');
+  $dbName = getenv('MYSQL_DATABASE');
 
-	$conn = mysqli_connect('localhost',$dbUser,$dbPassword,$dbName);
+	$conn = mysqli_connect('127.0.0.1',$dbUser,$dbPassword,$dbName);
 	if (!$conn) 
 	{
 		die('Could not connect: ' . mysqli_error($conn));
