@@ -12,7 +12,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 	session_start();
 	// username and password sent from form       
 	$myusername = $_POST['uname'];
-	$mypassword = $_POST['psw'];
+	$mypassword = password_hash($_POST['psw'], PASSWORD_BCRYPT);
 
 	include "$_SERVER[DOCUMENT_ROOT]/pinyator/Connexio.php";	  
 

@@ -9120,7 +9120,7 @@ INSERT INTO `POSICIO` (`Posicio_ID`, `Nom`, `EsNucli`, `EsCordo`, `EsTronc`, `CO
 CREATE TABLE IF NOT EXISTS `USUARIS` (
   `idusuari` int(11) NOT NULL AUTO_INCREMENT,
   `nom` varchar(20) NOT NULL,
-  `password` varchar(10) NOT NULL,
+  `password` varchar(255) NOT NULL,
   `Seguretat` int(11) NOT NULL DEFAULT '0',
   `CARREC` int(11) NOT NULL,
   `SEGADMIN` int(11) DEFAULT NULL,

@@ -23,7 +23,7 @@ $segboss = intval($_POST["segboss"]);
 
 include "$_SERVER[DOCUMENT_ROOT]/pinyator/Connexio.php";
 
-$password = GetStrDB($password);
+$password = password_hash(GetStrDB($password), PASSWORD_BCRYPT);
 $nom = GetStrDB($nom);
 
 if ($id > 0)
