@@ -177,7 +177,7 @@ $rowEventsTotals = mysqli_fetch_assoc($resultEventsTotals);
 
 $EventsTotals = $rowEventsTotals['num'];
 
-$sqlAssitenciaTotal = "SELECT sum(inscrits.Estat) as num FROM inscrits INNER JOIN Event ON inscrits.Event_ID=Event.Event_ID WHERE inscrits.Casteller_ID = '".$Casteller_id."' AND event.Estat = 1;";
+$sqlAssitenciaTotal = "SELECT sum(INSCRITS.Estat) as num FROM INSCRITS INNER JOIN EVENT ON INSCRITS.Event_ID=EVENT.Event_ID WHERE INSCRITS.Casteller_ID = '".$Casteller_id."' AND EVENT.Estat = 1;";
 $resultAssitenciaTotal = mysqli_query($conn, $sqlAssitenciaTotal);
 $rowAssitenciaTotal = mysqli_fetch_assoc($resultAssitenciaTotal);
 

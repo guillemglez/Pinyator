@@ -32,14 +32,14 @@ CREATE TABLE IF NOT EXISTS `CASTELL` (
 
 CREATE TABLE IF NOT EXISTS `CASTELLER` (
   `Casteller_ID` int(11) NOT NULL AUTO_INCREMENT,
-  `MalNom` varchar(50) NOT NULL,
+  `MalNom` varchar(100) NOT NULL,
   `Altura` int(11) NOT NULL,
-  `Forca` int(11) NOT NULL,
+  `Forca` int(11) NOT NULL DEFAULT 0,
   `POSICIO_PINYA_ID` int(11) NOT NULL,
-  `Nom` varchar(50) NOT NULL,
-  `Cognom_1` varchar(50) NOT NULL,
-  `Cognom_2` varchar(50) NOT NULL,
-  `Codi` varchar(50) NOT NULL,
+  `Nom` varchar(100) NOT NULL,
+  `Cognom_1` varchar(100) NULL,
+  `Cognom_2` varchar(100) NULL,
+  `Codi` varchar(100) NOT NULL,
   `Familia_ID` int(11) NOT NULL,
   `Estat` int(11) NOT NULL,
   `Lesionat` bit(1) NOT NULL DEFAULT b'0',
@@ -51,7 +51,8 @@ CREATE TABLE IF NOT EXISTS `CASTELLER` (
   `VACUNA_COVID` bit(1) NOT NULL DEFAULT b'0',
   PRIMARY KEY (`Casteller_ID`),
   UNIQUE KEY `MalNom` (`MalNom`)
-);
+) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
 
 -- --------------------------------------------------------
 
